@@ -3,14 +3,101 @@ import { Checkbox } from "./ui/checkbox";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Input } from "./ui/input";
 import { LockKeyhole, LockKeyholeOpen } from "lucide-react";
+import { useRef } from "react";
+
+import {
+    ImageKitAbortError,
+    ImageKitInvalidRequestError,
+    ImageKitServerError,
+    ImageKitUploadNetworkError,
+    upload,
+} from "@imagekit/next";
 
 
 export default function ResizeImage(){
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleClick = ()=>{
+    fileInputRef.current?.click()
+  }
+
+  const authenticator = async () => {
+        try {
+            const response = await fetch("/api/upload-auth");
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+            }
+            const data = await response.json();
+            const { signature, expire, token, publicKey } = data;
+            return { signature, expire, token, publicKey };
+        } catch (error) {
+            console.error("Authentication error:", error);
+            throw new Error("Authentication request failed");
+        }
+    };
+  
+     const abortController = new AbortController();
+
+  const handleFileChange = async ()=>{
+    const fileInput = fileInputRef?.current
+    if(!fileInput || !fileInput.files || fileInput.files.length === 0){
+      return Response.json("File is Required")
+    }
+
+    const file = fileInput.files[0]
+
+    let authParams;
+
+    try {
+      authParams = await authenticator() 
+    } catch (authError) {
+      console.error("Failed to authenticate for upload:", authError);
+      return;
+    }
+
+    const {token, expire, signature, publicKey} = authParams
+
+    try{
+        const uploadResponse = await upload({
+          signature,
+          publicKey,
+          file,
+          fileName: file.name,
+          abortSignal: abortController.signal,
+          token: token,
+          expire: expire
+        });
+
+        console.log(uploadResponse)
+      } catch (error) {
+            if (error instanceof ImageKitAbortError) {
+                console.error("Upload aborted:", error.reason);
+            } else if (error instanceof ImageKitInvalidRequestError) {
+                console.error("Invalid request:", error.message);
+            } else if (error instanceof ImageKitUploadNetworkError) {
+                console.error("Network error:", error.message);
+            } else if (error instanceof ImageKitServerError) {
+                console.error("Server error:", error.message);
+            } else {
+                console.error("Upload error:", error);
+            }
+        }
+
+  }
+
   return (
     <div className="w-full flex gap-10 p-4 h-full">
       <div className="w-5/7 h-full ">
-        <div className="h-full rounded-md bg-gray-800 p-6">
+        <div className="h-full rounded-md bg-gray-800 p-6" onClick={handleClick}>
+          <Input
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+            ref={fileInputRef}
+            accept=".png, .jpg, .jpeg, .webp, .svg"
+          />
           <div className="border-1 border-gray-600 h-full rounded-md">
             <div className="flex flex-col items-center justify-center h-full">
               <Image 
