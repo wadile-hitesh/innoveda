@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import { Checkbox } from "./ui/checkbox";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
@@ -164,7 +165,7 @@ export default function ResizeImage(){
             <div className="flex items-center justify-between w-full text-white text-md gap-4">
               <div className="w-1/3">
                 <label>Width</label>
-                <Input type="number" name="width" value={resizeImageProps.width} defaultValue={1024} onChange={handleInputChange} />
+                <Input type="number" name="width" value={resizeImageProps.width}  onChange={handleInputChange} />
               </div>
           
               <div className="flex items-end justify-center pb-3 gap-5 h-full w-1/3">
@@ -174,7 +175,7 @@ export default function ResizeImage(){
         
               <div className="w-1/3">
                 <label>Height</label>
-                <Input type="number" name="height" value={resizeImageProps.height} defaultValue={1024} onChange={handleInputChange} />
+                <Input type="number" name="height" value={resizeImageProps.height}  onChange={handleInputChange} />
               </div>
             </div>
           </div>
