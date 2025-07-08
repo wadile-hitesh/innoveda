@@ -2,6 +2,7 @@ import {getUploadAuthParams} from "@imagekit/next/server"
 import { NextResponse } from "next/server"
 import {v4 as uuidv4} from "uuid"
 
+
 export async function GET(){
     const expireTime = Math.floor(Date.now() / 1000) + 60 * 5;
 

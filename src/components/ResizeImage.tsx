@@ -3,7 +3,10 @@ import { Checkbox } from "./ui/checkbox";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Input } from "./ui/input";
 import { LockKeyhole, LockKeyholeOpen } from "lucide-react";
-import { useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
+
+import { Cropper } from 'react-advanced-cropper';
+import 'react-advanced-cropper/dist/style.css'
 
 import {
     ImageKitAbortError,
@@ -13,12 +16,22 @@ import {
     upload,
 } from "@imagekit/next";
 
+interface ResizeImageProps {
+  width : number | 500,
+  height : number | 500
+}
+
 
 export default function ResizeImage(){
 
   const [file, setFile] = useState<string | null>(null)
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [resizeImageProps,setResizeImageProps] = useState<ResizeImageProps>({
+    width : 500,
+    height : 500
+})
 
   const handleClick = ()=>{
     fileInputRef.current?.click()
@@ -41,6 +54,15 @@ export default function ResizeImage(){
     };
   
     const abortController = new AbortController();
+
+    const handleInputChange = (e : ChangeEvent<HTMLInputElement>) => {
+      const {name, value} = e.target
+      
+      setResizeImageProps((prev)=> ({
+        ...prev,
+        [name] : value
+      }))
+    }
 
     const handleFileChange = async ()=>{
       const fileInput = fileInputRef?.current
@@ -96,12 +118,12 @@ export default function ResizeImage(){
         {
           file ? 
           (
-            <Image 
-              src={file} 
-              alt="Image"
-              width={500}
-              height={500}
-            />
+            <div>
+              <Cropper 
+                src={file}
+              />
+            </div>
+            
           )
           :
           (
@@ -142,7 +164,7 @@ export default function ResizeImage(){
             <div className="flex items-center justify-between w-full text-white text-md gap-4">
               <div className="w-1/3">
                 <label>Width</label>
-                <Input type="number" defaultValue={1024} />
+                <Input type="number" name="width" value={resizeImageProps.width} defaultValue={1024} onChange={handleInputChange} />
               </div>
           
               <div className="flex items-end justify-center pb-3 gap-5 h-full w-1/3">
@@ -152,7 +174,7 @@ export default function ResizeImage(){
         
               <div className="w-1/3">
                 <label>Height</label>
-                <Input type="number" defaultValue={1024} />
+                <Input type="number" name="height" value={resizeImageProps.height} defaultValue={1024} onChange={handleInputChange} />
               </div>
             </div>
           </div>
