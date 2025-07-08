@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import sharp from "sharp";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest ) {
   const formData = await req.formData();
   const file = formData.get("image");
   if (!file) {
@@ -26,6 +26,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     return NextResponse.json({ image: base64Image }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "Error Occured While" });
+
+    if(error instanceof Error){
+      return NextResponse.json({ error: "Error Occured While" });
+    }
   }
 }
