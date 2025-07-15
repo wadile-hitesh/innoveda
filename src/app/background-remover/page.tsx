@@ -1,12 +1,18 @@
 "use client"
 import UploadImage from "@/components/UploadImage";
 import Image from "next/image";
-import {  useState } from "react";
+import {  CSSProperties, useState } from "react";
+import { ClimbingBoxLoader } from "react-spinners";
 
-
+const override: CSSProperties = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+    };
 
 export default function BackgroundRemover(){
     const [url,setUrl] = useState<string | null>(null)
+    const [loading,setLoading] = useState<boolean>(true)
     const handleUrl = (url : string)    => {
         setUrl(url + "?tr=e-bgremove")
     }
@@ -47,9 +53,19 @@ export default function BackgroundRemover(){
     
     return (
         <div className="w-full h-screen flex items-center ">
+            {loading && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-lg ">
+                <ClimbingBoxLoader 
+                loading={loading}
+                color="#F97316"
+                size={50}
+                cssOverride={override}
+                />
+            </div>
+            )}
             {
                 !url ? 
-                <UploadImage onUploadComplete={handleUrl} className=""/>
+                <UploadImage onUploadComplete={handleUrl} className="" setLoading={setLoading}/>
                 : 
                 <div>
                     <Image 
