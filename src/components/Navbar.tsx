@@ -11,8 +11,8 @@ export default function Navbar() {
       path: "/",
     },
     {
-      name: "Compress",
-      path: "/compress",
+      name: "Social Share",
+      path: "/social-share",
     },
     {
       name: "Convert",
