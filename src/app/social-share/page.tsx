@@ -2,9 +2,10 @@
 import Navbar from "@/components/Navbar";
 import UploadImage from "@/components/UploadImage";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, CSSProperties } from "react";
 import { toast } from "sonner";
 import axios from "axios"
+import { ClimbingBoxLoader } from "react-spinners"
 
 
 interface ImageFormatProps {
@@ -16,9 +17,16 @@ interface ImageFormatProps {
 
 export default function SocialShare(){
     const [url,setUrl] = useState<string | null>(null)
+    const [loading, setLoading] = useState<boolean>(true)
     const handleUrl = (url : string)    => {
         setUrl(url)
     }
+
+    const override: CSSProperties = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+    };
 
     const instagramFormats : ImageFormatProps[] = [
         { size: "320 x 320", label: "Profile picture", width : 320, height : 320 },
@@ -69,9 +77,28 @@ export default function SocialShare(){
 
         
     }
+    
+    useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1500); 
 
+    return () => clearTimeout(timeout); 
+  }, []);
+        
+    
     return (
         <div className="flex flex-col h-screen">
+            {loading && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-lg ">
+                <ClimbingBoxLoader 
+                loading={loading}
+                color="#F97316"
+                size={50}
+                cssOverride={override}
+                />
+            </div>
+            )}
             <Navbar />
             <div className="flex-1 flex py-5">
                 <div className="w-full flex">
@@ -82,8 +109,6 @@ export default function SocialShare(){
                                     <div className=" rounded-md py-2 text-center flex items-center justify-center">
                                         Social
                                     </div>
-
-                                    
                                 </div>
                             
                             </div>
@@ -139,7 +164,7 @@ export default function SocialShare(){
                                 </div>
                                 <div className="w-full">
                                     <div className="mx-auto ">
-                                        <UploadImage onUploadComplete={handleUrl} className="mx-auto" />
+                                        <UploadImage onUploadComplete={handleUrl} className="mx-auto" setLoading={setLoading} />
                                     </div>
                                 </div>
                             </>

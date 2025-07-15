@@ -16,9 +16,10 @@ import { toast } from "sonner";
 interface UploadImageProps {
   onUploadComplete : (url : string) => void,
   className : string
+  setLoading : (value : boolean) => void,
 }
 
-export default function UploadImage({onUploadComplete,className} : UploadImageProps){
+export default function UploadImage({onUploadComplete,className, setLoading} : UploadImageProps){
     
     
     
@@ -42,11 +43,12 @@ export default function UploadImage({onUploadComplete,className} : UploadImagePr
           const file = fileInput.files[0]
     
           let authParams;
-    
+          setLoading(true)
           try {
             authParams = await authenticator() 
           } catch (authError) {
             console.error("Failed to authenticate for upload:", authError);
+            setLoading(false)
             return;
           }
     
@@ -64,6 +66,7 @@ export default function UploadImage({onUploadComplete,className} : UploadImagePr
               });
               
               onUploadComplete(uploadResponse.url as string)
+
               toast.success("Image Uploaded")
 
             } catch (error) {
@@ -78,6 +81,11 @@ export default function UploadImage({onUploadComplete,className} : UploadImagePr
                   } else {
                       console.error("Upload error:", error);
                   }
+
+                  toast.error("Failed to Upload Image")
+              }
+              finally {
+                setLoading(false)
               }
     
     }
