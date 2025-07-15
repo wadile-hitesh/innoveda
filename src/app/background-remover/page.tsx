@@ -49,7 +49,7 @@ export default function BackgroundRemover(){
         <div className="w-full h-screen flex items-center ">
             {
                 !url ? 
-                <UploadImage onUploadComplete={handleUrl} />
+                <UploadImage onUploadComplete={handleUrl} className=""/>
                 : 
                 <div>
                     <Image 
