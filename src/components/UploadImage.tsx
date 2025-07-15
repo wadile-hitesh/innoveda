@@ -11,12 +11,14 @@ import {
     ImageKitUploadNetworkError,
     upload,
 } from "@imagekit/next";
+import { toast } from "sonner";
 
 interface UploadImageProps {
-  onUploadComplete : (url : string) => void
+  onUploadComplete : (url : string) => void,
+  className : string
 }
 
-export default function UploadImage({onUploadComplete} : UploadImageProps){
+export default function UploadImage({onUploadComplete,className} : UploadImageProps){
     
     
     
@@ -62,6 +64,7 @@ export default function UploadImage({onUploadComplete} : UploadImageProps){
               });
               
               onUploadComplete(uploadResponse.url as string)
+              toast.success("Image Uploaded")
 
             } catch (error) {
                   if (error instanceof ImageKitAbortError) {
@@ -79,7 +82,7 @@ export default function UploadImage({onUploadComplete} : UploadImageProps){
     
     }
     return (
-    <div className="w-full flex gap-10 p-4 h-full">
+    <div className={`flex flex-col items-center p-4 ${className}`}>
       <div className="w-5/7 h-full ">
           <div className="h-full rounded-md bg-gray-800 p-6" onClick={handleClick}>
             <Input
