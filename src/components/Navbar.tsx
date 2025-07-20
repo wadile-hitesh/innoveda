@@ -7,25 +7,25 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const navItems = [
     {
-      name: "Resize",
-      path: "/",
+      name: "Remove Background",
+      path: "/background-remover",
     },
     {
       name: "Social Share",
       path: "/social-share",
     },
-    {
-      name: "Convert",
-      path: "/convert",
-    },
-    {
-      name: "Crop",
-      path: "/crop",
-    },
-    {
-      name: "Watermark",
-      path: "/watermark",
-    },
+    // {
+    //   name: "Convert",
+    //   path: "/convert",
+    // },
+    // {
+    //   name: "Crop",
+    //   path: "/crop",
+    // },
+    // {
+    //   name: "Watermark",
+    //   path: "/watermark",
+    // },
   ];
 
   const [active, setActive] = useState<string | null>("");

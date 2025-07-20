@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         hostname: "ik.imagekit.io",
         pathname: "/yexuxs5kp/**",
       },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/yexuxs5kp/**",
+      },
+
     ],
   }
 };
