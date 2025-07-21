@@ -15,7 +15,7 @@ export default function Navbar() {
       path: "/social-share",
     },
     {
-      name: "Convert From JPG",
+      name: "Convert JPG",
       path: "/convert-from-jpg",
     },
     {

@@ -88,7 +88,7 @@ export default function ConvertFromJPG(){
                                 <>
                                     <div className="flex flex-col gap-5 items-center text-center">
                                         <p className="text-4xl font-bold">
-                                            Convert from JPG
+                                            Convert JPG to Other formats
                                         </p>
                                         <p className="text-lg font-light tracking-wide max-w-lg">
                                             Easily convert JPG images and remove their backgrounds with a single click. Ideal for clean, professional content creation.
