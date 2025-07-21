@@ -2,24 +2,17 @@
 import Image from "next/image";
 import { Input } from "./ui/input";
 import { useRef } from "react";
-// import authenticator from "@/lib/imagekitAuthenticator";
 
-// import {
-//     ImageKitAbortError,
-//     ImageKitInvalidRequestError,
-//     ImageKitServerError,
-//     ImageKitUploadNetworkError,
-//     upload,
-// } from "@imagekit/next";
 import { toast } from "sonner";
 
 interface UploadImageProps {
   onUploadComplete : (url : string) => void,
   className : string
   setLoading : (value : boolean) => void,
+  accept? : string
 }
 
-export default function CloudinaryUploadImage({onUploadComplete,className, setLoading} : UploadImageProps){
+export default function CloudinaryUploadImage({onUploadComplete,className, setLoading,accept} : UploadImageProps){
     
     
         const fileInputRef = useRef<HTMLInputElement>(null);
@@ -46,7 +39,7 @@ export default function CloudinaryUploadImage({onUploadComplete,className, setLo
                 const data = await response.json();
                 
                 onUploadComplete(data.publicId);
-
+                toast.success("Image Uploaded")
 
             } catch (error) {
                 if (error instanceof Error){
@@ -66,7 +59,7 @@ export default function CloudinaryUploadImage({onUploadComplete,className, setLo
               className="hidden"
               onChange={handleFileUpload}
               ref={fileInputRef}
-              accept=".png, .jpg, .jpeg, .webp, .svg"
+              accept={accept ?? ".png, .jpg, .jpeg, .webp, .svg"}
             />
             <div className="border-1 border-gray-600 h-full rounded-md">
               <div className="flex flex-col items-center justify-center h-full">

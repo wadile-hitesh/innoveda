@@ -14,10 +14,10 @@ export default function Navbar() {
       name: "Social Share",
       path: "/social-share",
     },
-    // {
-    //   name: "Convert",
-    //   path: "/convert",
-    // },
+    {
+      name: "Convert From JPG",
+      path: "/convert-from-jpg",
+    },
     // {
     //   name: "Crop",
     //   path: "/crop",
