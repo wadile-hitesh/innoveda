@@ -30,6 +30,7 @@ export default function RootLayout({
       > 
         <Toaster position="top-right" richColors/>
         {children}
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "85d0c24fda91476a98f6e4368c058173"}'></script>
       </body>
     </html>
   );
