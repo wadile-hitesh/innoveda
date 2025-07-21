@@ -17,7 +17,7 @@ const override: CSSProperties = {
 type VideoData = {
     compressedSize?: string | number;
     originalSize?: string | number;
-    // [key: string]: any;
+    
 };
 
 export default function ConvertFromJPG(){

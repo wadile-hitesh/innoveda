@@ -28,6 +28,15 @@ export default function CloudinaryUploadVideo({onUploadComplete,className, setLo
         const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
             const file = event.target.files?.[0];
             if(!file) return;
+
+            const MAX_SIZE_MB = 4;
+            const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+
+            if (file.size > MAX_SIZE_BYTES) {
+              toast.error(`Max file size is ${MAX_SIZE_MB}MB. Your file is ${(file.size / (1024 * 1024)).toFixed(2)}MB.`);
+              return;
+            }
+
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);

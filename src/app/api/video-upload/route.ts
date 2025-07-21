@@ -1,31 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
-// import { auth } from '@clerk/nextjs/server';
-// import { PrismaClient } from '@prisma/client';
 
 
-// const prisma = new PrismaClient()
 
-// Configuration
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View Credentials' below to copy your API secret
+    api_secret: process.env.CLOUDINARY_API_SECRET 
 });
 
 interface CloudinaryUploadResult {
     public_id: string;
     bytes: number;
     duration?: number
-    // [key: string]: any
 }
 
 export async function POST(request: NextRequest) {
 
 
     try {
-
-        //todo to check user
 
     if(
         !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
@@ -38,8 +31,7 @@ export async function POST(request: NextRequest) {
 
         const formData = await request.formData();
         const file = formData.get("file") as File | null;
-        // const title = formData.get("title") as string;
-        // const description = formData.get("description") as string;
+        
         const originalSize = formData.get("originalSize") as string;
 
         if(!file){
