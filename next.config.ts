@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ik.imagekit.io",
-        pathname: "/yexuxs5kp/**",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
       },
 
     ],

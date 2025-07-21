@@ -18,10 +18,10 @@ export default function Navbar() {
       name: "Convert From JPG",
       path: "/convert-from-jpg",
     },
-    // {
-    //   name: "Crop",
-    //   path: "/crop",
-    // },
+    {
+      name: "Transform Video",
+      path: "/video-transformation",
+    },
     // {
     //   name: "Watermark",
     //   path: "/watermark",
