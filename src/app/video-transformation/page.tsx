@@ -6,7 +6,6 @@ import {  CSSProperties, useCallback, useEffect,useState } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
 import { toast } from "sonner";
 import Image from "next/image";
-// import { CldImage } from 'next-cloudinary'
 
 const override: CSSProperties = {
         display: "block",
