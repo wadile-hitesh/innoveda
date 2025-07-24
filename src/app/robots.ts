@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://www.innoveda.tech/sitemap.xml',
+    sitemap: 'https://innoveda.tech/sitemap.xml',
   }
 }
