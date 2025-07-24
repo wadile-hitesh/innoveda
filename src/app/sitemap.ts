@@ -26,5 +26,17 @@ export default function sitemap(): MetadataRoute.Sitemap{
             changeFrequency : 'weekly',
             priority : 0.8,
         },
+        {
+            url : 'https://innoveda.tech/privacy',
+            lastModified : new Date(),
+            changeFrequency : 'yearly',
+            priority : 0.4,
+        },
+        {
+            url : 'https://innoveda.tech/terms',
+            lastModified : new Date(),
+            changeFrequency : 'yearly',
+            priority : 0.4,
+        }
     ]
 }
