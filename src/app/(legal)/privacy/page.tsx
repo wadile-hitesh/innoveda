@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
@@ -23,6 +23,8 @@ export default function PrivacyPolicy() {
           <li><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Innoveda.</li>
           <li><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</li>
           <li><strong>Country</strong> refers to: Maharashtra, India</li>
+          <li><strong>Data Controller</strong>, for the purposes of the GDPR, refers to the Company as the legal person which alone or jointly with others determines the purposes and means of the processing of Personal Data.</li>
+          <li><strong>Data Processor</strong> (or Service Provider) means any natural or legal person who processes the data on behalf of the Company.</li>
           <li><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
           <li><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual. Under GDPR, Personal Data also refers to any information relating to You such as a name, an identification number, location data, online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity. Under CCPA, Personal Data means any information that identifies, relates to, describes or is capable of being associated with, or could reasonably be linked, directly or indirectly, with You.</li>
           <li><strong>Service</strong> refers to the Website.</li>
@@ -95,6 +97,11 @@ export default function PrivacyPolicy() {
           </li>
         </ul>
         <p className="mb-6">For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.</p>
+
+        <h3 className="text-xl font-medium text-gray-400 mb-2">Role of the Company as Data Controller and Processor (GDPR)</h3>
+        <p className="mb-4">For the purposes of the General Data Protection Regulation (GDPR), Innoveda acts primarily as a <strong>Data Controller</strong> for the Personal Data it collects directly from You for its own defined purposes, such as providing and maintaining the Service, managing Your account, and sending You communications.</p>
+        <p className="mb-6">When We utilize third-party Service Providers (e.g., analytics services, advertising networks), these entities may act as <strong>Data Processors</strong> on Our behalf, processing Personal Data strictly according to Our instructions and for the purposes outlined in this Privacy Policy. We ensure that such Service Providers are contractually bound to protect Your data to the same standards as required by GDPR.</p>
+
 
         <h3 className="text-xl font-medium text-gray-400 mb-2">Use of Your Personal Data</h3>
         <p className="mb-4">The Company may use Personal Data for the following purposes:</p>
@@ -213,10 +220,10 @@ export default function PrivacyPolicy() {
         <p className="mb-4">If you have any questions about this Privacy Policy, You can contact us:</p>
         <ul className="list-disc list-inside mb-6 ml-4">
           <li>By visiting this page on our website: <a href="https://innoveda.tech/contact" className="text-blue-400 hover:underline">https://innoveda.tech/contact</a></li>
+          <li>By email: <a href="mailto:privacy@innoveda.tech" className="text-blue-400 hover:underline">privacy@innoveda.tech</a> (for privacy-related inquiries and exercising your data rights)</li>
         </ul>
       </div>
     </div>
   );
 };
-
 
