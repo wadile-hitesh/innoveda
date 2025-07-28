@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Innoveda",
   description: "Read our privacy policy to understand how we protect your data.",
   alternates: {
-    canonical: "https://innoveda.tech/privacy",
+    canonical: "https://www.innoveda.tech/privacy",
   },
 };
 

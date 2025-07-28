@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://innoveda.tech"),
+  metadataBase: new URL("https://www.innoveda.tech"),
   title: {
     default : "Innoveda",
     template: "%s | Innoveda",

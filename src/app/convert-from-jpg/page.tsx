@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Convert Images to JPG – Online Free Tool | Innoveda",
   description: "Quickly convert PNG, WebP, and other formats to JPG online for free.",
   alternates: {
-    canonical: "https://innoveda.tech/convert-from-jpg",
+    canonical: "https://www.innoveda.tech/convert-from-jpg",
   },
 };
 

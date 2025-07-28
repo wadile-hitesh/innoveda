@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Social Share Image Generator – Free Tool | Innoveda",
   description: "Create and preview social media share images (Instagram, Twitter , LinkedIn) online.",
   alternates: {
-    canonical: "https://innoveda.tech/social-share",
+    canonical: "https://www.innoveda.tech/social-share",
   },
 };
 

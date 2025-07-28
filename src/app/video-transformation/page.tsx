@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Transform Video – Compress & Optimize Videos | Innoveda",
   description: "Compress, resize, and reformat videos online. Fast & free.",
   alternates: {
-    canonical: "https://innoveda.tech/video-transformation",
+    canonical: "https://www.innoveda.tech/video-transformation",
   },
 };
 
