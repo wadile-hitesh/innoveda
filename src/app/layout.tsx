@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Innoveda",
-  description: " A utility tool",
+  metadataBase: new URL("https://innoveda.tech"),
+  title: {
+    default : "Innoveda",
+    template: "%s | Innoveda",
+  },
+  description: " A suite of free online tools for creators, developers, and marketers.",
 };
 
 export default function RootLayout({
@@ -29,6 +33,7 @@ export default function RootLayout({
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2834965382019207"
      crossOrigin="anonymous"></script>
+        
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900`}

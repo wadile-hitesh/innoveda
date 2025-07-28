@@ -7,11 +7,20 @@ import { ClimbingBoxLoader } from "react-spinners";
 import { toast } from "sonner";
 // import { CldImage } from 'next-cloudinary'
 
+
 const override: CSSProperties = {
         display: "block",
         margin: "0 auto",
         borderColor: "red",
     };
+
+export const metadata = {
+  title: "Convert Images to JPG – Online Free Tool | Innoveda",
+  description: "Quickly convert PNG, WebP, and other formats to JPG online for free.",
+  alternates: {
+    canonical: "https://innoveda.tech/convert-from-jpg",
+  },
+};
 
 export default function ConvertFromJPG(){
     const [url,setUrl] = useState<string | null>(null)

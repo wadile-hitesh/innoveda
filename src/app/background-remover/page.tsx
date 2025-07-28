@@ -10,7 +10,14 @@ const override: CSSProperties = {
         margin: "0 auto",
         borderColor: "red",
     };
-
+    
+    export const metadata = {
+  title: "Remove Background from Images – Free Tool | Innoveda",
+  description: "Remove image backgrounds instantly using AI. No sign-up required.",
+  alternates: {
+    canonical: "https://innoveda.tech/background-remover",
+  },
+};
 export default function BackgroundRemover(){
     const [url,setUrl] = useState<string | null>(null)
     const [loading,setLoading] = useState<boolean>(true)

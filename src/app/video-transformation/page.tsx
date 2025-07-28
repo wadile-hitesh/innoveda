@@ -19,6 +19,14 @@ type VideoData = {
     
 };
 
+export const metadata = {
+  title: "Transform Video – Compress & Optimize Videos | Innoveda",
+  description: "Compress, resize, and reformat videos online. Fast & free.",
+  alternates: {
+    canonical: "https://innoveda.tech/video-transformation",
+  },
+};
+
 export default function ConvertFromJPG(){
     const [url,setUrl] = useState<string | null>(null)
     const [loading,setLoading] = useState<boolean>(true)

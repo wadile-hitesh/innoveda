@@ -1,5 +1,13 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Privacy Policy | Innoveda",
+  description: "Read our privacy policy to understand how we protect your data.",
+  alternates: {
+    canonical: "https://innoveda.tech/privacy",
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className="bg-gray-900 text-white p-8 font-['Inter']">

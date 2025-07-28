@@ -2,6 +2,14 @@
 import Link from 'next/link'
 import React from 'react'
 
+export const metadata = {
+  title: "Terms and Conditions | Innoveda",
+  description: "Read our terms and conditions to understand your rights and responsibilities.",
+  alternates: {
+    canonical: "https://innoveda.tech/terms",
+  },
+};
+
 export default function TermsPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 py-12 text-white">

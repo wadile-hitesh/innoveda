@@ -15,6 +15,14 @@ interface ImageFormatProps {
     height : number | 1024
 }
 
+export const metadata = {
+  title: "Social Share Image Generator – Free Tool | Innoveda",
+  description: "Create and preview social media share images (Instagram, Twitter , LinkedIn) online.",
+  alternates: {
+    canonical: "https://innoveda.tech/social-share",
+  },
+};
+
 export default function SocialShare(){
     const [url,setUrl] = useState<string | null>(null)
     const [loading, setLoading] = useState<boolean>(true)
@@ -143,7 +151,7 @@ export default function SocialShare(){
                             })}
                             </div>
                             <div className="flex flex-col gap-5 items-center" onClick={handleResizeImage}>
-                                <button className=" w-full text-center px-1 py-2 rounded-md bg-amber-700 font-md text-base cursor-pointer">Resize</button>
+                                <button className="w-full text-center px-1 py-2 rounded-md bg-amber-700 font-md text-base cursor-pointer">Resize</button>
                             </div>
                         </div>
                     </div>
