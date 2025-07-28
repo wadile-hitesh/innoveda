@@ -1,4 +1,4 @@
-"use client"
+
 import Navbar from "@/components/Navbar";
 import UploadImage from "@/components/UploadImage";
 import Image from "next/image";

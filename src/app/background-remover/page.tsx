@@ -1,4 +1,4 @@
-"use client"
+
 import CloudinaryUploadImage from "@/components/CloudinaryImageUpload";
 import Navbar from "@/components/Navbar";
 import {  CSSProperties, useEffect, useRef, useState } from "react";

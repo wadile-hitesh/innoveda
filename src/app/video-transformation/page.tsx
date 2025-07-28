@@ -1,4 +1,4 @@
-"use client"
+
 import CloudinaryUploadVideo from "@/components/CloudinaryVideoUpload";
 import Navbar from "@/components/Navbar";
 import {  getCldImageUrl, getCldVideoUrl } from "next-cloudinary";
